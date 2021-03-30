@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['loggedin'])) {
+    header('Location: ../auth/login');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -163,7 +171,7 @@
     <div class="contaier">
         <h2 style="text-align:center;background-color:black;color:white;font-family:courier;">Add Your Food</h2>
 
-        <form action="add-food-item" method='post' enctype="multipart/form-data">
+        <form action="add-food-item?id=<?php echo $_SESSION['loggedin']['user_id']; ?>" method='post' enctype="multipart/form-data">
             <div class="row">
 
                 <div class="col-25">
@@ -171,7 +179,7 @@
                 </div>
                 <div class="col-75">
                     <input type="text" autocomplete="off" name="foodName" class="form-control" placeholder="Enter Item Name">
-                    <div><?= $_SESSION['menu_item']['item_name'] ?></div>
+                    <!-- <div><?= $_SESSION['menu_item']['item_name'] ?></div> -->
                 </div>
             </div>
             <div class="row">
@@ -188,7 +196,7 @@
                     <label>Price </label>
                 </div>
                 <div class="col-75">
-                    <input type="text" name="price"  class="form-control" placeholder="LKR ">
+                    <input type="text" name="price" class="form-control" placeholder="LKR ">
                 </div>
             </div>
 
@@ -201,7 +209,7 @@
                 </div>
             </div>
 
-            
+
             <div class="row">
                 <div class="col-715">
                     <input type="submit" name="submit" class="btn-success" value="Add">

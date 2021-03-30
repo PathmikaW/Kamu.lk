@@ -118,12 +118,6 @@
                 <?php }
 
                 ?>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    
-                    <td><a href="add-food-item"><button type="button" class="button">Add Food Items</button></a></td>
-                </tr>
 
             </table>
     </div>    

@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -163,13 +172,13 @@
     <div class="contaier">
         <form action="edit-food-item?id=<?= $data['id'] ?>" method='post' enctype="multipart/form-data">
             <div class="row">
-
+            <input type="hidden"  name = user_id value="<?php echo $_SESSION['loggedin']['user_id']; ?>">
                 <div class="col-25">
                     <label>Food Name</label>
                 </div>
                 <div class="col-75">
                     <input type="text" autocomplete="off" name="foodName" value="<?= $data['item_name'] ?>" class="form-control" placeholder="Enter Item Name">
-                    <div><?= $_SESSION['edit_menu_item']['item_name'] ?></div>
+                    <!-- <div><?= $_SESSION['edit_menu_item']['item_name'] ?></div> -->
                 </div>
             </div>
             <div class="row">

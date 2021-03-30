@@ -6,11 +6,14 @@
     }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 
 <head>
+    <style>
 
+    </style>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/seller/dash.css">
 
-
     <style>
-            .form-container {
+        .form-container {
             width: 100%;
             margin-left: 25%;
             background-color: #f2f2f2;
@@ -101,12 +103,13 @@
         }
     </style>
 
-    <title>Contact Admin</title>
+    <title>My Profile</title>
+
 </head>
 
 <body>
     <div class="seller-dashboard">
-        <?php include('dash-include/contact_admin_nav.php'); ?>
+        <?php include('dash-include/my_profile_nav.php'); ?>
         <div class="content">
             <div class="container">
                 <a href="view-order" class="card" id="card1" style="display: block;">
@@ -124,24 +127,36 @@
             </div>
         </div>
     </div>
-
-    <div class="content">
-        <div class="food-form form-container">
-                 <h2 style="text-transform: capitalize; margin-left: 450px;" >Contact Administrator</h2><br>
-                <form class="form" action="../seller/contact-admin?id=<?php echo $_SESSION['loggedin']['user_id'];?>" method="post">
-                    <div class="form-group">
-                        <label>Subject</label>
-                            <input class="form-control" type="text"  name="subject" size="50"
-                                    value="" autocomplete="off" placeholder="Enter Your Subject" required><br>
-                        <label>Message</label>
-                        <textarea class="form-control" name="message" placeholder="Message" 
-                            style="display: block; border: 2px solid #ccc; width: 95%; padding: 6px; margin: 5px auto;border-radius: 5px;" required></textarea><br>                        
-                    </div>
-                    <input class="button" type="submit" name='submit2' value="submit" size="25">
-                    <input class="button" type="reset" value="reset" size="25">
-                </form>
-            </div>
+    <div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>
+
+    <div class="food-form form-container">
+        <h2 style="text-transform: capitalize; display: inline-block; width: 250px; height: 25px; margin-left: 400px;">Change Password</h2><br>
+        <form class="form" action="../seller/change-password?id=<?php echo $_SESSION['loggedin']['user_id']; ?>" method="post">
+            <div class="form-group">
+                <label>Current Password</label>
+                <input class="form-control" type="password" name="currentPassword" size="50" value="" placeholder="Enter Your Current Password here" required><br>
+                <span class="invalidFeedback">
+                    <?php echo $error; ?>
+                </span><br>
+
+                <label>New Password</label>
+                <input class="form-control" type="password" name="password" size="50" value="" placeholder="Enter Your New Password here" required><br>
+                <span class="invalidFeedback">
+                    <?php echo $passwordError; ?>
+                </span><br>
+
+                <label>Confirm Password</label>
+                <input class="form-control" type="password" name="confirmPassword" size="50" value="" placeholder="Confirm your Password" required><br>
+                <span class="invalidFeedback">
+                    <?php echo $confirmPasswordError; ?>
+                </span><br>
+            </div>
+            <input class="button" type="submit" name='submit2' value="Change Password" size="25">
+        </form>
+    </div>
+
 </body>
 
 </html>

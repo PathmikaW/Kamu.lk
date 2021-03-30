@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -68,6 +77,7 @@
             color: white;
 
         }
+
         .button2 {
             border-radius: 10%;
             width: 125px;
@@ -111,16 +121,16 @@
                     <th>Item ID</th>
                     <th>Item Name</th>
                     <!-- <th>Restaurant ID</th> -->
-                    <th >Description</th>
+                    <th>Description</th>
                     <th>Price</th>
                     <th>Image</th>
                     <!-- <th>Image</th> -->
                 </tr>
                 <?php foreach ($data as $item) { ?>
                     <tr>
-                      <td><?php echo $item['id'] ?></td>
+                        <td><?php echo $item['id'] ?></td>
                         <td><?php echo $item['item_name'] ?></td>
-                        <td width= 500px><?php echo $item['description'] ?></td>
+                        <td width=500px><?php echo $item['description'] ?></td>
                         <td><?php echo "Rs. ", $item['price'] ?></td>
 
                         <td><img width="50px" height="50px" src="<?php echo "../" . $item['image'] ?>" /></td>
