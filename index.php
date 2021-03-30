@@ -21,6 +21,7 @@ $routes = [
     'auth/login' => 'AuthController@login',
     'auth/signup-user' => 'AuthController@signUpUser',
     'auth/signup-seller' => 'AuthController@signUpSeller',
+    'auth/signup-driver' => 'AuthController@signUpDriver',
     'auth/forgot-password' => 'AuthController@forgotPassword',
     'auth/reset-password' => 'AuthController@resetPassword',
 
@@ -112,11 +113,11 @@ $routes = [
   'driver/dash' => 'DriverController@dash',
   'driver/accept-orders' => 'DriverController@acceptOrders',
   'driver/contact-admin' => 'DriverController@contactAdmin',
-  'driver/delivery-history' => 'DriverController@deliveryHistory',
   'driver/earnings' => 'DriverController@earnings',
   'driver/edit-profile' => 'DriverController@editProfile',
   'driver/my-profile' => 'DriverController@myProfile',
-  'driver/update-location' => 'DriverController@updateLocation',
+  'driver/logout' => 'DriverController@logout',
+
 ];
 
 $found = false;

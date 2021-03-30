@@ -9,7 +9,7 @@
             <button class="dropbtn"><img src="../assets/images/seller/seller_icon.png" alt="user" width="50px"></button>
             <div class="dropdown-content">
                 <a href="my-profile?id=<?php echo $_SESSION['loggedin']['user_id'];?>">My Profile</a>
-                <a href="../../logout.php">Log Out</a>
+                <a href="logout">Log Out</a>
             </div>
         </div>
     </div>

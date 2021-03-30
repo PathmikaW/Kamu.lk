@@ -28,7 +28,7 @@
         </li>
         <li>Order Details
             <ul style="display: inline;">
-                <li><a href="view-order">View Order details</a></li>
+                <li><a href="view-order?id=<?php echo $_SESSION['loggedin']['user_id']; ?>">View Order details</a></li>
             </ul>
         </li>
         <li><a href="contact-admin?id=<?php echo $_SESSION['loggedin']['user_id'];?>">Contact Administrator</a></li>

@@ -17,15 +17,46 @@ class DriverController {
     $view->assign("data", $data);
   }
 
-  // driver/contact-admin
-  public function contactAdmin() {
+  //contact admin
+  public function contactAdmin()
+  {
+    $id = $_GET['id'];
+    $model = new Driver();
+    $user = $model->findUserById($id);
+    // print_r($user);
+    // die();
+    $data = [
+      'id' => '',
+      'username' => '',
+      'email' => '',
+      'subject' => '',
+      'message' => '',
+    ];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $data = [
+        'id' => $_GET['id'],
+        'username' => $user['username'],
+        'email' => $user['email'],
+        'subject' => trim($_POST['subject']),
+        'message' => trim($_POST['message'])
+      ];
+
+
+      $model = new Driver();
+      if ($model->sendMessage($data)) {
+        echo "<script>alert('Successfully Sent!')</script>";
+      } else {
+        die('Something went wrong.');
+      }
+    }
+    $model = new Driver();
+
     $view = new View("driver/contact-admin");
   }
 
-  // driver/delivey-history
-  public function deliveryHistory() {
-    $view = new View("driver/delivery-history");
-  }
+
 
   // driver/earnings
   public function earnings() {
@@ -42,9 +73,10 @@ class DriverController {
     $view = new View("driver/my-profile");
   }
 
-  // driver/update-location
-  public function updateLocation() {
-    $view = new View("driver/update-location");
+
+  public function logout()
+  {
+    $view = new View("driver/logout");
   }
 
 

@@ -222,7 +222,7 @@ if(!isset($_SESSION['loggedin'])) {
 
             <div class="row">
                 <div class="col-715">
-                    <a href="view-food-item"><button type="button" class="button">View Items</button></a>
+                    <a href="view-food-item?id=<?php echo $_SESSION['loggedin']['user_id']; ?>"><button type="button" class="button">View Items</button></a>
                 </div>
             </div>
         </form>

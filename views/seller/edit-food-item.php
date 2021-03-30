@@ -215,14 +215,14 @@
                     <input type="submit" name="submit" class="btn-success" value="Add">
 
                     <div class="col-716">
-                        <a href="add-food-item" class="btn-inverse"><button type="reset" value="Reset" class="btn-inverse">Cancel</button></a><br>
+                        <a href="add-food-item?id=<?php echo $_SESSION['loggedin']['user_id']; ?>" class="btn-inverse"><button type="reset" value="Reset" class="btn-inverse">Cancel</button></a><br>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-715">
-                    <a href="view-food-item"><button type="button" class="button">View Items</button></a>
+                    <a href="view-food-item?id=<?php echo $_SESSION['loggedin']['user_id']; ?>"><button type="button" class="button">View Items</button></a>
                 </div>
             </div>
         </form>

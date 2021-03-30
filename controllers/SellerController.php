@@ -289,18 +289,19 @@ class SellerController
     $_SESSION['menu_item']['item_name'] = '';
 
     if (isset($_POST['submit'])) {
+      if (isset($_FILES['fileToUpload']) && !empty($_FILES['fileToUpload']['name'])) {
       $target_dir =  ROOT . "/assets/uploads/";
       $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-      } else {
-
-       
+      } else {  
         echo "Sorry, there was an error uploading your file.";
         die();
       }
       $file = "assets/uploads/" . basename($_FILES["fileToUpload"]["name"]);
-
+    } else {
+      header("Location: add-food-item");
+    }
       $model = new Seller();
       $model->addFood($_POST, $file,$id);
       header("Location: view-food-item?id=$id");

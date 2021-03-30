@@ -143,7 +143,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td colspan="2"><a href="add-food-item"><button type="button" class="button2">Add Food Items</button></a></td>
+                    <td colspan="2"><a href="add-food-item?id=<?php echo $_SESSION['loggedin']['user_id']; ?>"><button type="button" class="button2">Add Food Items</button></a></td>
                 </tr>
 
             </table>

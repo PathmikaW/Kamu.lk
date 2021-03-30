@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(isset($_SESSION['loggedin']))
+    { 
+        if ($_SESSION['loggedin'] == 2) {
+            header('Location: ../nutritionist/dashboard');
+        }
+        die();
+    } 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +23,7 @@
         <div class="container"> 
             <div class="navbar">
                 <div class="logo">
-                    <img src="../assets/images/logo.png" alt="logo" width="125px">
+                    <img src="../assets/images/logo.png" alt="logo" width="150px">
                 </div>
                 <nav>
                     <ul id="MenuItems">
@@ -20,7 +31,7 @@
                         <li><a href="blog">Blog</a></li>
                         <li><a href="restaurant">Restaurants</a></li>
                         <li><a href="about-us">About Us</a></li>
-                        <li><a href="log.php" class="btn">Login</a></li>
+                        <li><a href="../auth/login" class="btn">Login</a></li>
                     </ul>
                 </nav>
                 <img src="../assets/images/menu.png" class="menu-icon" alt="menu" onclick="menutoggle()">
@@ -61,7 +72,7 @@
                     <div class="content">
                         <h1> Eat Healthy.<br> Stay Healthy.</h1>
                         <p> We provide personalized meal plans with expert advice. Order food and get delivered it to your door steps.</p>
-                        <a href="signup.php" class="btn">Sign Up User &#8594;</a> 
+                        <a href="../auth/signup-user" class="btn">Sign Up User &#8594;</a> 
                     </div>   
                 </div>
                 <div class="col-3">
@@ -69,7 +80,7 @@
                     <div class="content">
                         <h1>Add Your <br> Restaurant Here.</h1>
                         <p> You can add your meals and get connected with your customers.<br><br></p>
-                        <a href="restaurnt_signup.php" class="btn">Sign Up as Restaurant &#8594;</a>
+                        <a href="../auth/signup-seller" class="btn">Sign Up as Restaurant &#8594;</a>
                     </div>
                 </div>
                 <div class="col-3">
@@ -77,7 +88,7 @@
                     <div class="content">
                         <h1>Earn Money <br> From Kamu.lk</h1>
                         <p>You can earn money by delivering foods.<br><br><br></p>
-                        <a href="Driver_signup.php" class="btn">Sign Up as Driver &#8594;</a> 
+                        <a href="../auth/signup-driver" class="btn">Sign Up as Driver &#8594;</a> 
                     </div>
                 </div>
             </div>
